@@ -1,7 +1,17 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://meeqattravel.com";
+// Resolution order matters: an explicit override wins, otherwise fall back to
+// whatever domain this deployment actually serves from. Hardcoding
+// meeqattravel.com would point og:image at a domain we do not own yet, and
+// social crawlers would silently show no preview image. Once the real domain is
+// added as the production domain in Vercel, VERCEL_PROJECT_PRODUCTION_URL
+// becomes that domain and this picks it up with no code change.
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : "http://localhost:3000");
 
 const title = "Meeqat Travel & Tours — Licensed Hajj & Umrah Operator";
 const description =
