@@ -1,0 +1,344 @@
+{
+  "agency": {
+    "name": "Meeqat Travel & Tours",
+    "nameUrdu": "میقات ٹریول اینڈ ٹورز",
+    "licenceNumber": "DTS-PK-7842",
+    "moraLicence": "MoRA-Umrah-2026-RYK",
+    "phonePrimary": "+92 300 6842111",
+    "phoneSecondary": "+92 301 7923444",
+    "whatsappNumber": "923006842111",
+    "email": "info@meeqattravel.com",
+    "address": "Near Abbasia Canal Petrol Pump, Main Canal Road, Rahim Yar Khan, Punjab, Pakistan",
+    "addressUrdu": "نزد عباسیہ کینال پیٹرول پمپ، مین کینال روڈ، رحیم یار خان، پنجاب، پاکستان",
+    "bankDetails": {
+      "accountTitle": "Meeqat Travel and Tours (Pvt) Ltd",
+      "bankName": "Meezan Bank Ltd",
+      "accountNumber": "0105-0104829102",
+      "iban": "PK36MEZN0001050104829102"
+    }
+  },
+  "officialPortals": [
+    {
+      "name": "Nusuk Official Saudi Gateway",
+      "description": "Official Saudi Ministry of Hajj & Umrah platform for Umrah visa issuance, permits, and sanctuary reservations.",
+      "url": "https://www.nusuk.sa",
+      "badge": "Official Saudi KSA",
+      "category": "Visa & Permits"
+    },
+    {
+      "name": "Tasheer Visa Center Pakistan",
+      "description": "Authorized Saudi MOFA visa processing and biometrics enrollment service centers in Pakistan.",
+      "url": "https://vcsa.tasheer.com",
+      "badge": "Biometrics & Visa",
+      "category": "Embassy Submission"
+    },
+    {
+      "name": "Ministry of Religious Affairs (MoRA)",
+      "description": "Government of Pakistan official regulatory authority for Hajj & Umrah tour operator licensing.",
+      "url": "https://www.mora.gov.pk",
+      "badge": "Govt of Pakistan",
+      "category": "Licensing & Safety"
+    },
+    {
+      "name": "Saudi Ministry of Hajj & Umrah",
+      "description": "Direct regulatory ministry overseeing all holy site logistics, pilgrim welfare, and security.",
+      "url": "https://www.haj.gov.sa",
+      "badge": "KSA Ministry",
+      "category": "Regulatory"
+    }
+  ],
+  "verifiedHotels": {
+    "makkah": [
+      {
+        "id": "swissotel-makkah",
+        "name": "Swissôtel Makkah",
+        "category": "5-Star Luxury",
+        "distance": "100m (Direct Abraj Al-Bait Access)",
+        "walkTime": "2 mins to Haram Courtyard",
+        "desc": "Located inside Abraj Al Bait (Clock Tower) complex with private covered passageways straight to the Kaaba courtyard.",
+        "image": "/images/hotel-makkah-exterior.jpg",
+        "officialUrl": "https://www.swissotel.com/hotels/makkah/"
+      },
+      {
+        "id": "pullman-zamzam-makkah",
+        "name": "Pullman Zamzam Makkah",
+        "category": "5-Star Premium",
+        "distance": "120m (Clock Tower Complex)",
+        "walkTime": "3 mins to King Abdulaziz Gate",
+        "desc": "Iconic hospitality with audio feed from Haram prayers direct to guest suites.",
+        "image": "/images/hotel-makkah-room.jpg",
+        "officialUrl": "https://all.accor.com/hotel/6370/index.en.shtml"
+      },
+      {
+        "id": "dar-al-eiman-royal",
+        "name": "Dar Al Eiman Royal Hotel",
+        "category": "5-Star Executive",
+        "distance": "150m (Ajyad Street)",
+        "walkTime": "3 mins walk",
+        "desc": "Premier Ajyad location overlooking the King Abdulaziz Gate with spacious family suites.",
+        "image": "/images/hotel.jpg",
+        "officialUrl": "https://www.eiman-hotels.com"
+      },
+      {
+        "id": "le-meridien-makkah",
+        "name": "Le Méridien Makkah",
+        "category": "4-Star Deluxe",
+        "distance": "400m (Kudai Tunnel Connection)",
+        "walkTime": "6 mins walk or 2 min shuttle",
+        "desc": "Peaceful position with panoramic Haram views and 24/7 dedicated shuttle bus service.",
+        "image": "/images/hotel-buffet.jpg",
+        "officialUrl": "https://www.marriott.com"
+      }
+    ],
+    "madina": [
+      {
+        "id": "oberoi-madina",
+        "name": "The Oberoi Madina",
+        "category": "5-Star Ultra Luxury",
+        "distance": "50m (Prophet's Mosque Courtyard)",
+        "walkTime": "1 min walk to Bab Majeedi",
+        "desc": "Renowned gold standard in Madina hospitality right at the steps of Al-Masjid an-Nabawi.",
+        "image": "/images/madina-nabawi-sunset.jpg",
+        "officialUrl": "https://www.oberoihotels.com/hotels-in-madina/"
+      },
+      {
+        "id": "pullman-zamzam-madina",
+        "name": "Pullman Zamzam Madina",
+        "category": "5-Star Deluxe",
+        "distance": "150m (Central Northern Area)",
+        "walkTime": "2 mins to Ladies Gate & Main Plaza",
+        "desc": "Modern elegance with immediate proximity to the Rawdah Al-Rasool entrance.",
+        "image": "/images/hotel-madina-lobby.jpg",
+        "officialUrl": "https://all.accor.com/hotel/B240/index.en.shtml"
+      },
+      {
+        "id": "anwar-al-madinah",
+        "name": "Anwar Al Madinah Mövenpick",
+        "category": "5-Star Family Choice",
+        "distance": "100m (Attached Shopping Mall)",
+        "walkTime": "2 mins to Haram Plaza",
+        "desc": "Madina's largest hotel complex directly connected to the main plaza and commercial center.",
+        "image": "/images/masjid-quba.jpg",
+        "officialUrl": "https://movenpick.accor.com"
+      }
+    ]
+  },
+  "airports": [
+    { "code": "MUX", "city": "Multan", "name": "Multan International Airport", "distanceFromRYK": "260 km (approx 3 hrs road travel)", "officialUrl": "https://caapakistan.com.pk" },
+    { "code": "LHE", "city": "Lahore", "name": "Allama Iqbal International Airport", "distanceFromRYK": "590 km", "officialUrl": "https://lahoreairport.com.pk" },
+    { "code": "ISB", "city": "Islamabad", "name": "Islamabad International Airport", "distanceFromRYK": "720 km", "officialUrl": "https://islamabadairport.com.pk" },
+    { "code": "KHI", "city": "Karachi", "name": "Jinnah International Airport", "distanceFromRYK": "620 km", "officialUrl": "https://karachiairport.com.pk" }
+  ],
+  "airlines": [
+    { 
+      "id": "saudia", 
+      "name": "Saudia Airlines", 
+      "code": "SV",
+      "type": "National Carrier",
+      "directFlight": true,
+      "baggage": "2x 23kg Check-in + 7kg Hand Baggage",
+      "zamzamAllowance": "5 Liters Zamzam Free",
+      "officialUrl": "https://www.saudia.com"
+    },
+    { 
+      "id": "pia", 
+      "name": "Pakistan International Airlines (PIA)", 
+      "code": "PK",
+      "type": "National Flag Carrier",
+      "directFlight": true,
+      "baggage": "2x 23kg Check-in + 7kg Hand Baggage",
+      "zamzamAllowance": "5 Liters Zamzam Free",
+      "officialUrl": "https://www.piac.com.pk"
+    },
+    { 
+      "id": "flynas", 
+      "name": "Flynas", 
+      "code": "XY",
+      "type": "Saudi Low-Cost Carrier",
+      "directFlight": true,
+      "baggage": "30kg Total + 7kg Carry-on",
+      "zamzamAllowance": "5 Liters Zamzam Free",
+      "officialUrl": "https://www.flynas.com"
+    },
+    { 
+      "id": "airblue", 
+      "name": "Airblue", 
+      "code": "PA",
+      "type": "Private Pakistani Carrier",
+      "directFlight": true,
+      "baggage": "20kg / 30kg Tiered",
+      "zamzamAllowance": "5 Liters Free",
+      "officialUrl": "https://www.airblue.com"
+    }
+  ],
+  "umrahPackages": [
+    {
+      "id": "vip-gold-14d",
+      "name": "14 Days VIP Executive Umrah",
+      "tier": "VIP 5-Star",
+      "durationDays": 14,
+      "makkahNights": 7,
+      "madinaNights": 7,
+      "makkahHotel": "Swissôtel Makkah (Clock Tower)",
+      "madinaHotel": "The Oberoi Madina",
+      "distanceMakkah": "100m (Direct Courtyard Access)",
+      "distanceMadina": "50m (Prophet's Mosque Plaza)",
+      "startingPricePKR": 345000,
+      "startingPriceSAR": 4600,
+      "transport": "Private Luxury SUV / Haramain High-Speed Bullet Train VIP",
+      "visaType": "Saudi Tourist / Umrah Visa with Insurance",
+      "features": [
+        "Direct Saudi / PIA Flights included",
+        "Nusuk Rawdah Riaz-ul-Jannah Permit slot booking",
+        "5-Star Buffet Breakfast daily",
+        "Private Ziyarat in Makkah & Madina with Islamic Historian Guide",
+        "Haramain Bullet Train Business Class tickets (Makkah to Madina)",
+        "Dedicated 24/7 Meeqat Representative in Makkah & Madina"
+      ]
+    },
+    {
+      "id": "standard-15d",
+      "name": "15 Days Executive Umrah Package",
+      "tier": "4-Star Standard",
+      "durationDays": 15,
+      "makkahNights": 8,
+      "madinaNights": 7,
+      "makkahHotel": "Le Méridien / Dar Al Eiman",
+      "madinaHotel": "Pullman Zamzam Madina",
+      "distanceMakkah": "350m (5 mins walk)",
+      "distanceMadina": "150m (2 mins walk)",
+      "startingPricePKR": 245000,
+      "startingPriceSAR": 3250,
+      "transport": "AC Private GMC / Luxury Bus",
+      "visaType": "Official Nusuk Umrah Visa",
+      "features": [
+        "Direct Flight Options (Multan / Lahore / Karachi)",
+        "Nusuk Rawdah Riaz-ul-Jannah Appointment",
+        "Daily Buffet Breakfast",
+        "Group Ziyarat to all 12 historical sites",
+        "24/7 On-Call Support"
+      ]
+    },
+    {
+      "id": "economy-21d",
+      "name": "21 Days Extended Blessing Package",
+      "tier": "Economy Comfort",
+      "durationDays": 21,
+      "makkahNights": 11,
+      "madinaNights": 10,
+      "makkahHotel": "Mawaddah / Al Kiswah Towers",
+      "madinaHotel": "Zowar International / Al Eiman",
+      "distanceMakkah": "600m (24/7 Shuttle to Haram)",
+      "distanceMadina": "300m (4 mins walk)",
+      "startingPricePKR": 185000,
+      "startingPriceSAR": 2450,
+      "transport": "Luxury AC Coaster Bus",
+      "visaType": "1-Year Multiple Entry / Umrah Visa",
+      "features": [
+        "Maximum time for Worship in Holy Sanctuaries",
+        "24/7 Free AC Shuttle Service in Makkah",
+        "Complete Ziyarat in Makkah & Madina",
+        "Biometric guidance & Tasheer processing included"
+      ]
+    }
+  ],
+  "visaCategories": [
+    {
+      "id": "saudi-umrah",
+      "country": "Saudi Arabia",
+      "flag": "🇸🇦",
+      "title": "Saudi Official Nusuk Umrah Visa",
+      "validity": "90 Days Single Entry",
+      "processingDays": "24 to 48 Hours",
+      "startingPricePKR": 55000,
+      "requirements": [
+        "Original Passport (Valid for at least 6 months)",
+        "CNIC copy",
+        "2 Passport-size photographs with blue/white background",
+        "Tasheer Biometric Verification slip",
+        "Medical Insurance (Included in visa fee)"
+      ],
+      "officialPortalUrl": "https://www.nusuk.sa"
+    },
+    {
+      "id": "saudi-tourist-multiple",
+      "country": "Saudi Arabia",
+      "flag": "🇸🇦",
+      "title": "Saudi 1-Year Multiple Entry Tourist Visa",
+      "validity": "1 Year Multiple Entry (Stay up to 90 days per visit)",
+      "processingDays": "2 to 4 Working Days",
+      "startingPricePKR": 75000,
+      "requirements": [
+        "Passport valid for at least 6 months",
+        "Valid US / UK / Schengen visa OR travel history",
+        "Biometric enrollment at Tasheer center",
+        "Comprehensive Saudi COVID/Medical Health Insurance"
+      ],
+      "officialPortalUrl": "https://ksavisa.sa"
+    },
+    {
+      "id": "uae-tourist",
+      "country": "United Arab Emirates",
+      "flag": "🇦🇪",
+      "title": "UAE 30/60 Days Tourist Visa",
+      "validity": "30 Days or 60 Days",
+      "processingDays": "24 to 72 Hours",
+      "startingPricePKR": 35000,
+      "requirements": [
+        "Passport scanned copy",
+        "CNIC copy",
+        "White background photo"
+      ],
+      "officialPortalUrl": "https://icp.gov.ae"
+    },
+    {
+      "id": "turkey-evisa",
+      "country": "Turkey",
+      "flag": "🇹🇷",
+      "title": "Turkey E-Visa & Sticker Visa",
+      "validity": "180 Days (30 Days stay)",
+      "processingDays": "3 to 7 Days",
+      "startingPricePKR": 48000,
+      "requirements": [
+        "Valid Passport",
+        "Valid US/UK/Schengen visa for instant E-Visa OR full file submission",
+        "Bank statement of last 6 months"
+      ],
+      "officialPortalUrl": "https://www.evisa.gov.tr"
+    },
+    {
+      "id": "schengen-consultancy",
+      "country": "Schengen Europe",
+      "flag": "🇪🇺",
+      "title": "Schengen Europe Visit Visa File Prep",
+      "validity": "90 Days",
+      "processingDays": "15 to 20 Working Days",
+      "startingPricePKR": 95000,
+      "requirements": [
+        "Complete 6-month bank statement with branch manager sign/stamp",
+        "NTN / FBR Tax Returns last 2 years",
+        "Chamber of Commerce Membership / Job letter",
+        "Detailed day-wise travel itinerary and flight reservation"
+      ],
+      "officialPortalUrl": "https://visa.vfsglobal.com"
+    }
+  ],
+  "ziyaratSites": {
+    "makkah": [
+      { "name": "Jabal al-Noor & Ghar Hira", "desc": "The Mountain of Light where Prophet Muhammad ﷺ received the first divine revelations of the Holy Quran through Angel Jibreel (AS)." },
+      { "name": "Jabal Thawr", "desc": "The cave where Prophet Muhammad ﷺ and Hazrat Abu Bakr Siddique (RA) stayed during the historic Hijrah to Madina." },
+      { "name": "Maidan-e-Arafat & Jabal-ar-Rahmah", "desc": "The Mount of Mercy where the Prophet delivered his Farewell Sermon (Khutbat-ul-Wada)." },
+      { "name": "Mina & Muzdalifah", "desc": "The tent city of Mina and the open plain of Muzdalifah central to Hajj rites." },
+      { "name": "Jannat al-Mu'alla", "desc": "The historic cemetery of Makkah where Mother of Believers Hazrat Khadijah (RA) is resting." },
+      { "name": "Masjid Jin & Masjid Shajarah", "desc": "Historical mosques in Makkah marking significant miraculous events in early Islamic history." }
+    ],
+    "madina": [
+      { "name": "Masjid Quba", "desc": "The very first mosque built in Islamic history. Offering two rakats prayer here carries reward equal to an Umrah." },
+      { "name": "Masjid al-Qiblatain", "desc": "The Mosque of Two Qiblas where the direction of prayer was divinely changed from Jerusalem to the Holy Kaaba." },
+      { "name": "Mount Uhud & Shuhada Uhud", "desc": "Site of the historic Battle of Uhud and resting place of Sayyid ash-Shuhada Hazrat Hamza (RA) and 70 Sahaba." },
+      { "name": "Jannat al-Baqi", "desc": "The sacred graveyard adjacent to Masjid an-Nabawi where over 10,000 Sahaba and Ahle Bait rest." },
+      { "name": "Sab'ah Masajid (Masjid Al-Fath / Battle of Trench)", "desc": "Site of the Battle of Khandaq (Trench) featuring historical companion mosques." },
+      { "name": "Bir Ali (Dhul Hulayfah Miqat)", "desc": "The official Miqat point for pilgrims traveling from Madina to Makkah to assume Ihram." }
+    ]
+  }
+}

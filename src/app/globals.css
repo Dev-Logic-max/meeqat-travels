@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --green: #0B4D3B;
+    --forest: #063528;
+    --navy: #16243F;
+    --gold: #B98B3C;
+    --gold-soft: #E3C77E;
+    --ivory: #FAFAF5;
+    --charcoal: #1a1a1a;
+    --muted: #6b6b6b;
+    --border: #e8e4dc;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #ffffff;
+    color: var(--charcoal);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* Nastaliq for Urdu: must have generous line-height or descenders clip */
+  [lang="ur"], .font-urdu {
+    font-family: 'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', 'Urdu Typesetting', serif;
+    line-height: 2.1 !important;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+}
+
+/* Swiper overrides for clean look */
+.swiper-pagination-bullet {
+  background: var(--gold) !important;
+  opacity: 0.4 !important;
+}
+.swiper-pagination-bullet-active {
+  opacity: 1 !important;
+}
