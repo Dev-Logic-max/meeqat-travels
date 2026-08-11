@@ -14,7 +14,7 @@ export default function AboutPage() {
   const isUrdu = lang === 'ur';
 
   return (
-    <div className={isUrdu ? 'font-urdu' : ''} lang={lang} dir={isUrdu ? 'rtl' : 'ltr'}>
+    <div className={isUrdu ? 'font-urdu' : lang === 'ar' ? 'font-arabic' : ''}>
       <Navbar />
 
       {/* Hero */}

@@ -26,15 +26,55 @@
   }
 
   /* Nastaliq for Urdu: must have generous line-height or descenders clip */
-  [lang="ur"], .font-urdu {
+  [lang="ur"], [lang="ur-PK"], .font-urdu {
     font-family: 'Noto Nastaliq Urdu', 'Jameel Noori Nastaleeq', 'Urdu Typesetting', serif;
     line-height: 2.1 !important;
+  }
+
+  /* Arabic wants Naskh, not Nastaliq — and a tighter leading than Urdu. */
+  [lang="ar"], [lang="ar-SA"], .font-arabic {
+    font-family: 'Noto Naskh Arabic', 'Traditional Arabic', 'Segoe UI', serif;
+    line-height: 1.95;
+  }
+
+  /* Nastaliq and Naskh headings need room; Georgia's tight tracking clips them. */
+  [lang="ur"] h1, [lang="ur"] h2, [lang="ur"] h3, [lang="ur"] h4,
+  [lang="ur-PK"] h1, [lang="ur-PK"] h2, [lang="ur-PK"] h3, [lang="ur-PK"] h4,
+  [lang="ar"] h1, [lang="ar"] h2, [lang="ar"] h3, [lang="ar"] h4,
+  [lang="ar-SA"] h1, [lang="ar-SA"] h2, [lang="ar-SA"] h3, [lang="ar-SA"] h4 {
+    font-family: inherit;
+    letter-spacing: normal;
+    line-height: 1.8;
   }
 
   h1, h2, h3, h4 {
     font-family: Georgia, 'Times New Roman', serif;
     font-weight: 400;
     letter-spacing: -0.01em;
+    /* Long package and visa titles were breaking to a single orphan word. */
+    text-wrap: balance;
+  }
+
+  /* Package names, hotel names and visa titles are user data of unknown length:
+     never let one long token push a card wider than its column. */
+  h1, h2, h3, h4, p, li, dd, dt {
+    overflow-wrap: break-word;
+  }
+}
+
+/* Prices and durations line up in columns across cards. */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }
 

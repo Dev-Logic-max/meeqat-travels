@@ -22,7 +22,7 @@ export default function UmrahPackagesPage() {
     : packages.filter((p: any) => p.tier.toLowerCase().includes(activeFilter.toLowerCase()));
 
   return (
-    <div className={`min-h-screen bg-[#FAFAF5] text-[#1a1a1a] ${isUrdu ? 'font-urdu text-right' : 'font-sans'}`} dir={isUrdu ? 'rtl' : 'ltr'}>
+    <div className={`min-h-screen bg-[#FAFAF5] text-[#1a1a1a] ${isUrdu ? 'font-urdu' : lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
       <Navbar />
       
       {/* Hero */}

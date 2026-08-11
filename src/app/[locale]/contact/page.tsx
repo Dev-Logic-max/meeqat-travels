@@ -35,7 +35,7 @@ export default function ContactPage() {
   };
 
   return (
-    <div className={isUrdu ? 'font-urdu' : ''} lang={lang} dir={isUrdu ? 'rtl' : 'ltr'}>
+    <div className={isUrdu ? 'font-urdu' : lang === 'ar' ? 'font-arabic' : ''}>
       <Navbar />
 
       <section className="py-16 bg-[#FAFAF5] border-b border-[#e8e4dc]">

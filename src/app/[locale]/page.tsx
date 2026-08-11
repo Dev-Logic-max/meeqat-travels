@@ -14,11 +14,12 @@ import { ArrowRight, Phone, Send, ChevronRight } from 'lucide-react';
 
 export default function HomePage() {
   const lang = useLocale();
+  const p = (path: string) => `/${lang}${path}`;
   const t = translations[lang];
   const isUrdu = lang === 'ur';
 
   return (
-    <div className={isUrdu ? 'font-urdu' : ''} lang={lang} dir={isUrdu ? 'rtl' : 'ltr'}>
+    <div className={isUrdu ? 'font-urdu' : lang === 'ar' ? 'font-arabic' : ''}>
       <Navbar />
 
       {/* ─── HERO ─── */}
@@ -46,13 +47,13 @@ export default function HomePage() {
 
           <div className="flex flex-wrap gap-3 mt-8">
             <Link
-              href="/umrah-packages"
+              href={p('/umrah-packages')}
               className="bg-[#0B4D3B] text-white px-6 py-3 rounded-lg text-sm hover:bg-[#083c2e] transition-colors"
             >
               View Packages
             </Link>
             <Link
-              href="/package-builder"
+              href={p('/package-builder')}
               className="bg-white/10 backdrop-blur text-white border border-white/20 px-6 py-3 rounded-lg text-sm hover:bg-white/20 transition-colors"
             >
               Build Custom Package
@@ -63,11 +64,18 @@ export default function HomePage() {
 
       {/* ─── QUIET STATS ─── */}
       <section className="bg-[#0B4D3B] text-white py-5 border-b border-[#B98B3C]/20">
-        <div className="max-w-7xl mx-auto px-5 sm:px-8 flex flex-wrap justify-between gap-4 text-center text-xs">
-          <span><strong className="text-base font-serif text-[#E3C77E]">10,000+</strong> Pilgrims Served</span>
-          <span><strong className="text-base font-serif text-[#E3C77E]">15+</strong> Years Experience</span>
-          <span><strong className="text-base font-serif text-[#E3C77E]">DTS&nbsp;#&nbsp;7842</strong> Licensed Operator</span>
-          <span><strong className="text-base font-serif text-[#E3C77E]">All-Pakistan</strong> Agent Network</span>
+        <div className="max-w-7xl mx-auto px-5 sm:px-8 grid grid-cols-2 gap-x-4 gap-y-4 text-center text-xs sm:grid-cols-4">
+          {[
+            { figure: '10,000+', label: 'Pilgrims served' },
+            { figure: '15+', label: 'Years of operation' },
+            { figure: 'DTS # 7842', label: 'Licensed operator' },
+            { figure: 'All-Pakistan', label: 'Agent network' },
+          ].map((s) => (
+            <span key={s.label} className="flex flex-col items-center gap-0.5">
+              <strong className="text-base font-serif leading-tight text-[#E3C77E]">{s.figure}</strong>
+              <span className="leading-snug text-white/80">{s.label}</span>
+            </span>
+          ))}
         </div>
       </section>
 
@@ -81,7 +89,7 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Large Makkah card */}
-            <Link href="/destinations/makkah" className="group relative rounded-2xl overflow-hidden h-[400px]">
+            <Link href={p('/destinations/makkah')} className="group relative rounded-2xl overflow-hidden h-[400px]">
               <Image src="/images/kaaba.jpg" alt="Makkah" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
               <div className="absolute bottom-6 left-6 right-6 text-white">
@@ -93,7 +101,7 @@ export default function HomePage() {
 
             {/* Two stacked cards */}
             <div className="flex flex-col gap-4">
-              <Link href="/destinations/madina" className="group relative rounded-2xl overflow-hidden h-[192px]">
+              <Link href={p('/destinations/madina')} className="group relative rounded-2xl overflow-hidden h-[192px]">
                 <Image src="/images/madina.jpg" alt="Madina" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                 <div className="absolute bottom-5 left-5 text-white">
@@ -103,14 +111,14 @@ export default function HomePage() {
               </Link>
 
               <div className="grid grid-cols-2 gap-4">
-                <Link href="/destinations/jeddah" className="group relative rounded-2xl overflow-hidden h-[192px]">
+                <Link href={p('/destinations/jeddah')} className="group relative rounded-2xl overflow-hidden h-[192px]">
                   <Image src="/images/hotel-makkah-exterior.jpg" alt="Jeddah" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                   <div className="absolute bottom-4 left-4 text-white">
                     <h3 className="text-lg font-serif">Jeddah</h3>
                   </div>
                 </Link>
-                <Link href="/destinations/riyadh" className="group relative rounded-2xl overflow-hidden h-[192px]">
+                <Link href={p('/destinations/riyadh')} className="group relative rounded-2xl overflow-hidden h-[192px]">
                   <Image src="/images/airport-terminal.jpg" alt="Riyadh" fill className="object-cover group-hover:scale-105 transition-transform duration-700" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                   <div className="absolute bottom-4 left-4 text-white">
@@ -134,7 +142,7 @@ export default function HomePage() {
               <h2 className="text-3xl sm:text-4xl font-serif text-[#1a1a1a]">Umrah packages</h2>
               <p className="text-sm text-[#6b6b6b] mt-1">Starting estimates with full Nusuk BRN verification and flights.</p>
             </div>
-            <Link href="/umrah-packages" className="text-sm text-[#0B4D3B] font-medium flex items-center gap-1 hover:underline">
+            <Link href={p('/umrah-packages')} className="text-sm text-[#0B4D3B] font-medium flex items-center gap-1 hover:underline">
               All packages <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
@@ -143,23 +151,24 @@ export default function HomePage() {
             {ratesData.umrahPackages.slice(0, 3).map((pkg) => (
               <div key={pkg.id} className="bg-white rounded-xl border border-[#e8e4dc] p-6 flex flex-col justify-between hover:shadow-md transition-shadow">
                 <div>
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="text-[11px] text-[#0B4D3B] font-medium tracking-wide uppercase">{pkg.tier}</span>
-                    <span className="text-[11px] text-[#6b6b6b]">{pkg.durationDays} days</span>
+                  <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 mb-3">
+                    <span className="rounded-full bg-[#0B4D3B]/8 px-2.5 py-1 text-[10.5px] font-semibold uppercase tracking-[0.08em] text-[#0B4D3B]">{pkg.tier}</span>
+                    <span className="rounded-full border border-[#e8e4dc] px-2.5 py-1 text-[10.5px] text-[#6b6b6b]">{pkg.durationDays} days</span>
+                    <span className="rounded-full border border-[#e8e4dc] px-2.5 py-1 text-[10.5px] text-[#6b6b6b]">{pkg.makkahNights}+{pkg.madinaNights} nights</span>
                   </div>
 
-                  <h3 className="text-lg font-serif text-[#1a1a1a] mb-4">{pkg.name}</h3>
+                  <h3 className="text-[17px] leading-snug font-serif text-[#1a1a1a] mb-4 text-balance">{pkg.name}</h3>
 
-                  <div className="space-y-2 text-xs text-[#6b6b6b] mb-5">
+                  <div className="space-y-2 text-xs leading-relaxed text-[#6b6b6b] mb-5">
                     <p><span className="text-[#1a1a1a] font-medium">Makkah</span> · {pkg.makkahNights} nights · {pkg.makkahHotel}</p>
                     <p><span className="text-[#1a1a1a] font-medium">Madina</span> · {pkg.madinaNights} nights · {pkg.madinaHotel}</p>
                   </div>
 
-                  <ul className="space-y-1.5 text-xs text-[#6b6b6b]">
+                  <ul className="space-y-1.5 text-xs leading-relaxed text-[#6b6b6b]">
                     {pkg.features.slice(0, 4).map((f, i) => (
                       <li key={i} className="flex items-start gap-2">
-                        <span className="text-[#0B4D3B] mt-0.5">✓</span>
-                        <span>{f}</span>
+                        <span className="text-[#0B4D3B] mt-0.5 shrink-0">✓</span>
+                        <span className="min-w-0">{f}</span>
                       </li>
                     ))}
                   </ul>
@@ -167,17 +176,25 @@ export default function HomePage() {
 
                 <div className="mt-6 pt-5 border-t border-[#e8e4dc]">
                   <p className="text-[11px] text-[#6b6b6b]">From</p>
-                  <p className="text-xl font-serif text-[#1a1a1a]">
-                    PKR {pkg.startingPricePKR.toLocaleString()} <span className="text-xs text-[#6b6b6b] font-sans">/ person</span>
+                  <p className="text-xl font-serif text-[#1a1a1a] tabular-nums">
+                    PKR {pkg.startingPricePKR.toLocaleString('en-PK')} <span className="text-xs text-[#6b6b6b] font-sans">/ person</span>
                   </p>
-                  <a
-                    href={`https://wa.me/${ratesData.agency.whatsappNumber}?text=${encodeURIComponent(`Assalam-o-Alaikum! I'm interested in the "${pkg.name}" package. Please share available dates and firm pricing.`)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-3 w-full bg-[#0B4D3B] text-white py-2.5 rounded-lg text-xs font-medium flex items-center justify-center gap-1.5 hover:bg-[#063528] transition-colors"
-                  >
-                    Get a firm quote
-                  </a>
+                  <div className="mt-3 grid grid-cols-1 gap-2">
+                    <Link
+                      href={p(`/umrah-packages/${pkg.id}`)}
+                      className="w-full bg-[#0B4D3B] text-white py-2.5 rounded-lg text-xs font-medium flex items-center justify-center gap-1.5 hover:bg-[#063528] transition-colors"
+                    >
+                      See full itinerary <ArrowRight className="w-3.5 h-3.5" />
+                    </Link>
+                    <a
+                      href={`https://wa.me/${ratesData.agency.whatsappNumber}?text=${encodeURIComponent(`Assalam-o-Alaikum! I'm interested in the "${pkg.name}" package. Please share available dates and firm pricing.`)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-full border border-[#e8e4dc] text-[#0B4D3B] py-2.5 rounded-lg text-xs font-medium flex items-center justify-center gap-1.5 hover:border-[#0B4D3B] transition-colors"
+                    >
+                      Get a firm quote
+                    </a>
+                  </div>
                 </div>
               </div>
             ))}
@@ -196,7 +213,7 @@ export default function HomePage() {
             and get an instant budget estimate — then send it straight to us on WhatsApp.
           </p>
           <Link
-            href="/package-builder"
+            href={p('/package-builder')}
             className="inline-flex items-center gap-2 bg-white text-[#0B4D3B] px-6 py-3 rounded-lg text-sm font-medium hover:bg-gray-100 transition-colors"
           >
             Open Package Builder <ArrowRight className="w-4 h-4" />
@@ -215,17 +232,17 @@ export default function HomePage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {ratesData.visaCategories.slice(0, 5).map(v => (
               <Link
-                href="/visas"
+                href={p(`/visas/${v.id}`)}
                 key={v.id}
                 className="border border-[#e8e4dc] rounded-xl p-5 flex items-start gap-4 hover:border-[#0B4D3B]/30 hover:shadow-sm transition-all group"
               >
-                <span className="text-2xl">{v.flag}</span>
+                <span className="text-2xl leading-none shrink-0" aria-hidden="true">{v.flag}</span>
                 <div className="flex-1 min-w-0">
-                  <h3 className="text-sm font-medium text-[#1a1a1a] group-hover:text-[#0B4D3B] transition-colors">{v.title}</h3>
-                  <p className="text-[11px] text-[#6b6b6b] mt-0.5">{v.processingDays} · {v.validity}</p>
-                  <p className="text-xs text-[#0B4D3B] font-medium mt-2">From PKR {v.startingPricePKR.toLocaleString()}</p>
+                  <h3 className="text-sm font-medium leading-snug text-[#1a1a1a] group-hover:text-[#0B4D3B] transition-colors">{v.title}</h3>
+                  <p className="text-[11px] leading-relaxed text-[#6b6b6b] mt-1">{v.processingDays} · {v.validity}</p>
+                  <p className="text-xs text-[#0B4D3B] font-medium mt-2 tabular-nums">From PKR {v.startingPricePKR.toLocaleString('en-PK')}</p>
                 </div>
-                <ChevronRight className="w-4 h-4 text-gray-300 group-hover:text-[#0B4D3B] shrink-0 mt-1" />
+                <ChevronRight className="w-4 h-4 text-gray-300 group-hover:text-[#0B4D3B] shrink-0 mt-1 rtl:rotate-180" />
               </Link>
             ))}
           </div>
@@ -276,7 +293,7 @@ export default function HomePage() {
               <span>✓ Official Tasheer Channel</span>
               <span>✓ Nusuk BRN Verified Hotels</span>
             </div>
-            <Link href="/licence" className="inline-block mt-6 text-sm text-[#E3C77E] hover:underline">
+            <Link href={p('/licence')} className="inline-block mt-6 text-sm text-[#E3C77E] hover:underline">
               Verify our licence →
             </Link>
           </div>

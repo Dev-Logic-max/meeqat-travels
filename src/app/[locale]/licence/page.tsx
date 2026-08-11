@@ -14,7 +14,7 @@ export default function LicencePage() {
   const t = translations[lang]
 
   return (
-    <div className={`min-h-screen bg-[#FAFAF5] text-[#1a1a1a] ${isUrdu ? 'font-urdu text-right' : 'font-sans'}`} dir={isUrdu ? 'rtl' : 'ltr'}>
+    <div className={`min-h-screen bg-[#FAFAF5] text-[#1a1a1a] ${isUrdu ? 'font-urdu' : lang === 'ar' ? 'font-arabic' : 'font-sans'}`}>
       <Navbar />
       
       <div className="pt-32 pb-20 max-w-4xl mx-auto px-6">

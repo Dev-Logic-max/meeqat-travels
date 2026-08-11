@@ -84,7 +84,7 @@ export default function DestinationDetailPage({ params }: DestinationPageProps) 
     : city.toLowerCase() === 'madina' ? ratesData.ziyaratSites.madina : [];
 
   return (
-    <div className={isUrdu ? 'font-urdu' : ''} lang={lang} dir={isUrdu ? 'rtl' : 'ltr'}>
+    <div className={isUrdu ? 'font-urdu' : lang === 'ar' ? 'font-arabic' : ''}>
       <Navbar />
 
       {/* Hero */}
