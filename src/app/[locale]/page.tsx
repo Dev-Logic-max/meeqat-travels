@@ -10,6 +10,7 @@ import { Language, translations } from '@/content/translations';
 import ratesData from '@/content/rates.json';
 import Link from 'next/link';
 import Image from 'next/image';
+import { AutoRotateImage } from '@/components/ui/ImageSlider';
 import { ArrowRight, Phone, Send, ChevronRight } from 'lucide-react';
 
 export default function HomePage() {
@@ -24,12 +25,17 @@ export default function HomePage() {
 
       {/* ─── HERO ─── */}
       <section className="relative h-[85vh] min-h-[560px] flex items-end">
-        <Image
-          src="/images/hero-kaaba-night.jpg"
-          alt=""
-          fill
+        <AutoRotateImage
+          images={[
+            '/images/hero/haram-night-1.jpg',
+            '/images/hero/haram-night-2.jpg',
+            '/images/hero/madina-dusk.jpg',
+          ]}
+          alt="Masjid al-Haram at night"
+          className="absolute inset-0"
+          sizes="100vw"
+          interval={9}
           priority
-          className="object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10" />
 

@@ -56,7 +56,7 @@
         "distance": "100m (Direct Abraj Al-Bait Access)",
         "walkTime": "2 mins to Haram Courtyard",
         "desc": "Located inside Abraj Al Bait (Clock Tower) complex with private covered passageways straight to the Kaaba courtyard.",
-        "image": "/images/hotel-makkah-exterior.jpg",
+        "image": "/images/hotels/makkah-swissotel-1.jpg",
         "officialUrl": "https://www.swissotel.com/hotels/makkah/"
       },
       {
@@ -66,7 +66,7 @@
         "distance": "120m (Clock Tower Complex)",
         "walkTime": "3 mins to King Abdulaziz Gate",
         "desc": "Iconic hospitality with audio feed from Haram prayers direct to guest suites.",
-        "image": "/images/hotel-makkah-room.jpg",
+        "image": "/images/hotels/makkah-pullman-1.jpg",
         "officialUrl": "https://all.accor.com/hotel/6370/index.en.shtml"
       },
       {
@@ -76,7 +76,7 @@
         "distance": "150m (Ajyad Street)",
         "walkTime": "3 mins walk",
         "desc": "Premier Ajyad location overlooking the King Abdulaziz Gate with spacious family suites.",
-        "image": "/images/hotel.jpg",
+        "image": "/images/hotels/makkah-dareiman-1.jpg",
         "officialUrl": "https://www.eiman-hotels.com"
       },
       {
@@ -86,7 +86,7 @@
         "distance": "400m (Kudai Tunnel Connection)",
         "walkTime": "6 mins walk or 2 min shuttle",
         "desc": "Peaceful position with panoramic Haram views and 24/7 dedicated shuttle bus service.",
-        "image": "/images/hotel-buffet.jpg",
+        "image": "/images/hotels/makkah-lemeridien-1.jpg",
         "officialUrl": "https://www.marriott.com"
       }
     ],
@@ -98,7 +98,7 @@
         "distance": "50m (Prophet's Mosque Courtyard)",
         "walkTime": "1 min walk to Bab Majeedi",
         "desc": "Renowned gold standard in Madina hospitality right at the steps of Al-Masjid an-Nabawi.",
-        "image": "/images/madina-nabawi-sunset.jpg",
+        "image": "/images/hotels/madina-oberoi-1.jpg",
         "officialUrl": "https://www.oberoihotels.com/hotels-in-madina/"
       },
       {
@@ -108,7 +108,7 @@
         "distance": "150m (Central Northern Area)",
         "walkTime": "2 mins to Ladies Gate & Main Plaza",
         "desc": "Modern elegance with immediate proximity to the Rawdah Al-Rasool entrance.",
-        "image": "/images/hotel-madina-lobby.jpg",
+        "image": "/images/hotels/madina-pullman-1.jpg",
         "officialUrl": "https://all.accor.com/hotel/B240/index.en.shtml"
       },
       {
@@ -118,8 +118,18 @@
         "distance": "100m (Attached Shopping Mall)",
         "walkTime": "2 mins to Haram Plaza",
         "desc": "Madina's largest hotel complex directly connected to the main plaza and commercial center.",
-        "image": "/images/masjid-quba.jpg",
+        "image": "/images/hotels/madina-movenpick-1.jpg",
         "officialUrl": "https://movenpick.accor.com"
+      },
+      {
+        "id": "frontel-al-harithia",
+        "name": "Frontel Al Harithia Hotel Madina",
+        "category": "5-Star Premium",
+        "distance": "100m (Northern Plaza)",
+        "walkTime": "2 mins to Ladies Entrance",
+        "desc": "Premier northern plaza location with direct views of Al-Masjid an-Nabawi and luxury hospitality.",
+        "image": "/images/hotels/madina-frontel-1.jpg",
+        "officialUrl": "https://frontelhotels.com"
       }
     ]
   },

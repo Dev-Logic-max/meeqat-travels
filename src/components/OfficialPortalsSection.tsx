@@ -4,11 +4,78 @@ import React, { useState } from 'react';
 import ratesData from '@/content/rates.json';
 import { ExternalLink, ShieldCheck, Plane, Building, Info, X } from 'lucide-react';
 import Image from 'next/image';
+import { ImageSlider } from '@/components/ui/ImageSlider';
+
+// Hotel image sliders map
+const hotelPhotos: Record<string, string[]> = {
+  'swissotel-makkah': [
+    '/images/hotels/makkah-swissotel-1.jpg',
+    '/images/hotels/makkah-swissotel-2.jpg',
+    '/images/hotels/makkah-swissotel-3.jpg',
+    '/images/hotels/makkah-swissotel-4.jpg'
+  ],
+  'pullman-zamzam-makkah': [
+    '/images/hotels/makkah-pullman-1.jpg',
+    '/images/hotels/makkah-pullman-2.jpg',
+    '/images/hotels/makkah-pullman-3.jpg',
+    '/images/hotels/makkah-pullman-4.jpg'
+  ],
+  'dar-al-eiman-royal': [
+    '/images/hotels/makkah-dareiman-1.jpg',
+    '/images/hotels/makkah-dareiman-2.jpg',
+    '/images/hotels/makkah-dareiman-3.jpg',
+    '/images/hotels/makkah-dareiman-4.jpg'
+  ],
+  'le-meridien-makkah': [
+    '/images/hotels/makkah-lemeridien-1.jpg',
+    '/images/hotels/makkah-lemeridien-2.jpg',
+    '/images/hotels/makkah-lemeridien-3.jpg',
+    '/images/hotels/makkah-lemeridien-4.jpg'
+  ],
+  'oberoi-madina': [
+    '/images/hotels/madina-oberoi-1.jpg',
+    '/images/hotels/madina-oberoi-2.jpg',
+    '/images/hotels/madina-oberoi-3.jpg',
+    '/images/hotels/madina-oberoi-4.jpg'
+  ],
+  'pullman-zamzam-madina': [
+    '/images/hotels/madina-pullman-1.jpg',
+    '/images/hotels/madina-pullman-2.jpg',
+    '/images/hotels/madina-pullman-3.jpg',
+    '/images/hotels/madina-pullman-4.jpg'
+  ],
+  'anwar-al-madinah': [
+    '/images/hotels/madina-movenpick-1.jpg',
+    '/images/hotels/madina-movenpick-2.jpg',
+    '/images/hotels/madina-movenpick-3.jpg',
+    '/images/hotels/madina-movenpick-4.jpg'
+  ],
+  'frontel-al-harithia': [
+    '/images/hotels/madina-frontel-1.jpg',
+    '/images/hotels/madina-frontel-2.jpg',
+    '/images/hotels/madina-frontel-3.jpg',
+    '/images/hotels/madina-frontel-4.jpg'
+  ]
+};
+
+// Portal images map
+const portalImages = [
+  '/images/portals/nusuk.jpg',
+  '/images/portals/tasheer.jpg',
+  '/images/portals/mora.jpg',
+  '/images/portals/absher.jpg'
+];
+
+// Airline images map
+const airlineImages: Record<string, string> = {
+  saudia: '/images/airlines/widebody-dawn.jpg',
+  pia: '/images/airlines/cabin-interior.jpg',
+  flynas: '/images/airlines/boarding-gate.jpg',
+  airblue: '/images/airlines/baggage-check.jpg'
+};
 
 export const OfficialPortalsSection: React.FC = () => {
   const [selectedHotel, setSelectedHotel] = useState<any>(null);
-  // Hotels first: it is what visitors actually came to compare. Portals are
-  // supporting evidence, so they sit last.
   const [activeTab, setActiveTab] = useState<'portals' | 'hotels' | 'airlines'>('hotels');
 
   return (
@@ -29,7 +96,7 @@ export const OfficialPortalsSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Tabs — hotels first, portals last. Scrolls rather than wraps on phones. */}
+        {/* Tabs */}
         <div className="mb-10 -mx-5 overflow-x-auto px-5 sm:mx-0 sm:flex sm:justify-center sm:px-0">
           <div
             role="tablist"
@@ -67,35 +134,45 @@ export const OfficialPortalsSection: React.FC = () => {
             {ratesData.officialPortals.map((portal, index) => (
               <div
                 key={index}
-                className="bg-white rounded-2xl p-6 border border-[#e8e4dc] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
+                className="bg-white rounded-2xl overflow-hidden border border-[#e8e4dc] shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group relative"
               >
-                <div className="absolute top-0 right-0 w-24 h-24 bg-gradient-to-br from-[#E3C77E]/20 to-transparent rounded-bl-full pointer-events-none" />
-                
                 <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-[#0B4D3B] px-2.5 py-1 bg-[#0B4D3B]/10 rounded-md border border-[#0B4D3B]/20 shadow-inner">
-                      {portal.badge}
-                    </span>
-                    <span className="text-[11px] text-gray-400 font-medium">{portal.category}</span>
+                  <div className="relative h-40 w-full overflow-hidden">
+                    <Image
+                      src={portalImages[index % portalImages.length]}
+                      alt={portal.name}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                    <div className="absolute top-3 left-3">
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-[#0B4D3B] px-2.5 py-1 bg-white/95 backdrop-blur-md rounded-md border border-[#0B4D3B]/20 shadow-sm">
+                        {portal.badge}
+                      </span>
+                    </div>
                   </div>
-
-                  <h3 className="text-base font-serif font-bold text-[#1a1a1a] mb-2 group-hover:text-[#0B4D3B] transition-colors">
-                    {portal.name}
-                  </h3>
-
-                  <p className="text-xs text-[#6b6b6b] leading-relaxed mb-6">
-                    {portal.description}
-                  </p>
+                  
+                  <div className="p-5">
+                    <span className="text-[11px] text-gray-400 font-medium block mb-1">{portal.category}</span>
+                    <h3 className="text-base font-serif font-bold text-[#1a1a1a] mb-2 group-hover:text-[#0B4D3B] transition-colors">
+                      {portal.name}
+                    </h3>
+                    <p className="text-xs text-[#6b6b6b] leading-relaxed mb-4">
+                      {portal.description}
+                    </p>
+                  </div>
                 </div>
 
-                <a
-                  href={portal.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full bg-gray-50 hover:bg-[#0B4D3B] text-gray-700 hover:text-white border border-gray-200 hover:border-[#0B4D3B] py-2.5 px-4 rounded-xl text-xs font-semibold flex items-center justify-center gap-2 transition-all shadow-sm"
-                >
-                  Visit Official Website <ExternalLink className="w-3.5 h-3.5" />
-                </a>
+                <div className="p-5 pt-0">
+                  <a
+                    href={portal.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full bg-gray-50 hover:bg-[#0B4D3B] text-gray-700 hover:text-white border border-gray-200 hover:border-[#0B4D3B] py-2.5 px-4 rounded-xl text-xs font-semibold flex items-center justify-center gap-2 transition-all shadow-sm"
+                  >
+                    Visit Official Website <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                </div>
               </div>
             ))}
           </div>
@@ -122,13 +199,13 @@ export const OfficialPortalsSection: React.FC = () => {
                     className="bg-white rounded-2xl overflow-hidden border border-[#e8e4dc] shadow-sm hover:shadow-lg transition-all flex flex-col justify-between group"
                   >
                     <div className="relative h-44 w-full overflow-hidden">
-                      <Image
-                        src={hotel.image}
+                      <ImageSlider
+                        images={hotelPhotos[hotel.id] || [hotel.image]}
                         alt={hotel.name}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        className="h-44 w-full"
+                        arrows={false}
                       />
-                      <div className="absolute top-3 left-3 bg-black/70 backdrop-blur-md text-[#E3C77E] text-[10px] font-bold px-2.5 py-1 rounded-md border border-[#E3C77E]/30">
+                      <div className="absolute top-3 left-3 bg-black/70 backdrop-blur-md text-[#E3C77E] text-[10px] font-bold px-2.5 py-1 rounded-md border border-[#E3C77E]/30 pointer-events-none z-10">
                         {hotel.category}
                       </div>
                     </div>
@@ -176,20 +253,20 @@ export const OfficialPortalsSection: React.FC = () => {
                 </div>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {ratesData.verifiedHotels.madina.map((hotel) => (
                   <div
                     key={hotel.id}
                     className="bg-white rounded-2xl overflow-hidden border border-[#e8e4dc] shadow-sm hover:shadow-lg transition-all flex flex-col justify-between group"
                   >
                     <div className="relative h-44 w-full overflow-hidden">
-                      <Image
-                        src={hotel.image}
+                      <ImageSlider
+                        images={hotelPhotos[hotel.id] || [hotel.image]}
                         alt={hotel.name}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        className="h-44 w-full"
+                        arrows={false}
                       />
-                      <div className="absolute top-3 left-3 bg-black/70 backdrop-blur-md text-[#E3C77E] text-[10px] font-bold px-2.5 py-1 rounded-md border border-[#E3C77E]/30">
+                      <div className="absolute top-3 left-3 bg-black/70 backdrop-blur-md text-[#E3C77E] text-[10px] font-bold px-2.5 py-1 rounded-md border border-[#E3C77E]/30 pointer-events-none z-10">
                         {hotel.category}
                       </div>
                     </div>
@@ -236,39 +313,54 @@ export const OfficialPortalsSection: React.FC = () => {
             {ratesData.airlines.map((airline) => (
               <div
                 key={airline.id}
-                className="bg-white rounded-2xl p-6 border border-[#e8e4dc] shadow-sm hover:shadow-md transition-all flex flex-col justify-between"
+                className="bg-white rounded-2xl overflow-hidden border border-[#e8e4dc] shadow-sm hover:shadow-md transition-all flex flex-col justify-between group"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="w-10 h-10 rounded-xl bg-[#0B4D3B]/10 border border-[#0B4D3B]/20 flex items-center justify-center font-bold text-[#0B4D3B] text-sm shadow-inner">
-                      {airline.code}
-                    </span>
-                    <span className="text-[10px] font-bold text-emerald-800 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
-                      Direct Flight
-                    </span>
+                  <div className="relative h-40 w-full overflow-hidden">
+                    <Image
+                      src={airlineImages[airline.id] || '/images/airlines/widebody-dawn.jpg'}
+                      alt={airline.name}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                    <div className="absolute top-3 left-3">
+                      <span className="w-10 h-10 rounded-xl bg-white/95 backdrop-blur-md border border-gray-200 flex items-center justify-center font-bold text-[#0B4D3B] text-sm shadow-sm">
+                        {airline.code}
+                      </span>
+                    </div>
+                    <div className="absolute top-3 right-3">
+                      <span className="text-[10px] font-bold text-emerald-800 bg-emerald-50/95 backdrop-blur-md px-2.5 py-1 rounded-full border border-emerald-200">
+                        Direct Flight
+                      </span>
+                    </div>
                   </div>
 
-                  <h3 className="text-base font-serif font-bold text-[#1a1a1a] mb-1">{airline.name}</h3>
-                  <p className="text-xs text-gray-500 mb-4">{airline.type}</p>
+                  <div className="p-5">
+                    <h3 className="text-base font-serif font-bold text-[#1a1a1a] mb-1">{airline.name}</h3>
+                    <p className="text-xs text-gray-500 mb-4">{airline.type}</p>
 
-                  <div className="space-y-2 text-xs text-gray-600 bg-gray-50 p-3 rounded-xl border border-gray-200 mb-6">
-                    <p className="flex items-center gap-1.5">
-                      <span className="text-[#0B4D3B]">🧳</span> <strong>Baggage:</strong> {airline.baggage}
-                    </p>
-                    <p className="flex items-center gap-1.5">
-                      <span className="text-[#0B4D3B]">💧</span> <strong>Zamzam:</strong> {airline.zamzamAllowance}
-                    </p>
+                    <div className="space-y-2 text-xs text-gray-600 bg-gray-50 p-3 rounded-xl border border-gray-200 mb-4">
+                      <p className="flex items-center gap-1.5">
+                        <span className="text-[#0B4D3B]">🧳</span> <strong>Baggage:</strong> {airline.baggage}
+                      </p>
+                      <p className="flex items-center gap-1.5">
+                        <span className="text-[#0B4D3B]">💧</span> <strong>Zamzam:</strong> {airline.zamzamAllowance}
+                      </p>
+                    </div>
                   </div>
                 </div>
 
-                <a
-                  href={airline.officialUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-full bg-[#0B4D3B] hover:bg-[#063528] text-white py-2.5 rounded-xl text-xs font-medium flex items-center justify-center gap-1.5 transition-colors shadow-sm"
-                >
-                  Airline Direct Portal <ExternalLink className="w-3.5 h-3.5" />
-                </a>
+                <div className="p-5 pt-0">
+                  <a
+                    href={airline.officialUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full bg-[#0B4D3B] hover:bg-[#063528] text-white py-2.5 rounded-xl text-xs font-medium flex items-center justify-center gap-1.5 transition-colors shadow-sm"
+                  >
+                    Airline Direct Portal <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                </div>
               </div>
             ))}
           </div>

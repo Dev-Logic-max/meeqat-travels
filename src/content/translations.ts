@@ -160,13 +160,87 @@ const baseTranslations = {
       officeLocation: "دفتر کا پتہ",
       rights: "جملہ حقوق محفوظ ہیں۔"
     }
+  },
+  ar: {
+    nav: {
+      home: "الرئيسية",
+      packages: "برامج العمرة",
+      builder: "مصمم الرحلات المخصص",
+      visas: "خدمات التأشيرات",
+      destinations: "الزيارات والمعالم",
+      licence: "الترخيص والتحقق",
+      about: "من نحن",
+      contact: "الاتصال والمكاتب",
+      callUs: "اتصل بنا",
+      whatsapp: "استفسار عبر واتساب"
+    },
+    hero: {
+      licenceBadge: "مشغل معتمد ومسجل لدى وزارة الشؤون الدينية",
+      title: "رحلتكم المباركة إلى الحرمين الشريفين",
+      subtitle: "وكالة عمرة مرخصة مباشرة مع إدارة كاملة للبرامج، وتذاكر الطيران، وحجوزات الفنادق، واستشارات تأشيرات تسهيل.",
+      btnPackages: "استكشف البرامج",
+      btnBuilder: "مصمم الرحلات المخصص",
+      quickInquiryTitle: "احصل على عرض سعر مؤكد",
+      selectDeparture: "اختر مطار المغادرة",
+      selectDuration: "اختر مدة الإقامة",
+      selectGroup: "عدد المسافرين",
+      btnGetQuote: "احصل على عرض السعر عبر واتساب"
+    },
+    stats: {
+      pilgrims: "+10,000 معتمر في خدمتهم",
+      experience: "+15 عاماً من الخبرة",
+      licence: "مشغل مرخص مباشرة 100%",
+      cities: "شبكة وكلاء في جميع أنحاء باکستان"
+    },
+    packagesSection: {
+      tag: "باقات مميزة",
+      title: "أبرز برامج العمرة",
+      subtitle: "أسعار شفافة وتقديرية مع تحقق كامل من حجوزات الفنادق عبر منصة نسك، والطيران، والنقل الأرضي.",
+      from: "يبدأ من",
+      pkr: "روبية",
+      perPerson: "للشخص الواحد",
+      detailsBtn: "عرض التفاصيل",
+      quoteBtn: "حجز السعر المؤكد"
+    },
+    builderSection: {
+      tag: "أداة تفاعلية",
+      title: "صمّم رحلة العمرة الخاصة بك",
+      subtitle: "حدد مدة إقامتك في مكة والمدينة، واختر تصنيف الفنادق، ووسائل النقل، واحصل على تقدير ميزانية فوري.",
+      step1: "1. تفاصيل السفر",
+      step2: "2. فندق مكة",
+      step3: "3. فندق المدينة",
+      step4: "4. المواصلات والطيران",
+      nights: "اليالي",
+      distanceHaram: "الفاصل عن الحرم المكي",
+      distanceNabawi: "الفاصل عن المسجد النبوي",
+      estimateTitle: "ميزانية البرنامج التقديرية",
+      btnSendWhatsApp: "إرسال المواصفات عبر واتساب"
+    },
+    visasSection: {
+      tag: "استشارات متخصصة",
+      title: "خدمات التأشيرات السعودية والدولية",
+      subtitle: "إرشادات معتمدة لتأشيرات الزيارة والسياحة والعمل مع جدولة مواعيد البصمة الإلكترونية.",
+      tasheerNotice: "تتطلب الجوازات الباكستانية التحقق الحيوي (البصمة) في مراكز تسهيل (لاهور، ملتان، كراتشي)."
+    },
+    destinationsSection: {
+      tag: "المواقع المقدسة",
+      title: "دليل الزيارات في مكة المكرمة والمدينة المنورة",
+      subtitle: "استمتع بالسكينة والروحانية مع جولات إرشادية للميعالم الإسلامية التاريخية."
+    },
+    licenceNotice: {
+      title: "مشغل معتمد ومتحقق منه حكومياً",
+      mora: "مرخص من وزارة الشؤون الدينية والأوقاف (MoRA)",
+      dts: "مرخص من دائرة الخدمات السياحية (DTS)",
+      fraudWarning: "تنبيه هام للسلامة المالية: يجب إيداع جميع المدفوعات الرسمية حصرياً في الحساب البنكي الرسمي للشركة 'Meeqat Travel and Tours (Pvt) Ltd'. لا تدفع أبداً في حسابات شخصية."
+    },
+    footer: {
+      about: "ميقات للسياحة والأسفار وكالة معتمدة ومباشرة لرحلات الحج والعمرة مقرها رحيم يار خان، إقليم البنجاب، تخدم المعتمرين في جميع أنحاء باکستان بكل تفانٍ وإخلاص.",
+      quickLinks: "روابط سريعة",
+      legal: "الترخيص والتحقق الحكومي",
+      officeLocation: "موقع المكتب",
+      rights: "جميع الحقوق محفوظة."
+    }
   }
 };
 
-// Arabic reuses the English copy for these legacy page strings until the Arabic
-// body translation lands. The newer pages (offices, visa guide) already carry
-// real Arabic in src/i18n/dictionaries.ts.
-export const translations = {
-  ...baseTranslations,
-  ar: baseTranslations.en,
-};
+export const translations = baseTranslations;

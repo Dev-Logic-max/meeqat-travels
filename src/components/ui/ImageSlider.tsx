@@ -25,6 +25,10 @@ interface SliderProps {
   /** Show arrows as well as dots. Off for small cards where they crowd. */
   arrows?: boolean;
   priority?: boolean;
+  /** Advance on a timer until the visitor interacts or hovers. */
+  autoPlay?: boolean;
+  /** Seconds between automatic advances. */
+  interval?: number;
 }
 
 /**
@@ -38,9 +42,13 @@ export function ImageSlider({
   sizes = '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw',
   arrows = true,
   priority = false,
+  autoPlay = true,
+  interval = 6,
 }: SliderProps) {
   const [index, setIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
   const touchStartX = useRef<number | null>(null);
+  const reduced = usePrefersReducedMotion();
   const count = images.length;
 
   const go = useCallback(
@@ -48,10 +56,24 @@ export function ImageSlider({
     [count]
   );
 
+  // Advance on a timer, but stop the moment the visitor takes control —
+  // a carousel that moves while you are looking at a photo is infuriating.
+  useEffect(() => {
+    if (!autoPlay || paused || reduced || count < 2) return;
+    const id = window.setInterval(() => setIndex((i) => (i + 1) % count), interval * 1000);
+    return () => window.clearInterval(id);
+  }, [autoPlay, paused, reduced, count, interval]);
+
   if (count === 0) return null;
 
   return (
-    <div className={`group relative overflow-hidden bg-[#F2EEE5] ${className}`}>
+    <div
+      className={`group relative overflow-hidden bg-[#F2EEE5] ${className}`}
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+      onFocusCapture={() => setPaused(true)}
+      onBlurCapture={() => setPaused(false)}
+    >
       {images.map((src, i) => (
         <Image
           key={src}
@@ -67,9 +89,10 @@ export function ImageSlider({
         />
       ))}
 
-      {/* Swipe target — mobile users expect to drag, not hunt for arrows. */}
+      {/* Swipe target — mobile users expect to drag, not hunt for arrows.
+          Sits below the controls so it never swallows an arrow or dot click. */}
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 z-10"
         onTouchStart={(e) => {
           touchStartX.current = e.touches[0].clientX;
         }}
@@ -89,7 +112,7 @@ export function ImageSlider({
                 type="button"
                 onClick={() => go(index - 1)}
                 aria-label="Previous photo"
-                className="absolute start-2 top-1/2 hidden h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-white/85 text-[#1a1a1a] opacity-0 shadow transition-opacity group-hover:opacity-100 focus-visible:opacity-100 sm:flex"
+                className="absolute start-2 z-20 top-1/2 hidden h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-[#1a1a1a] opacity-0 shadow-md ring-1 ring-black/5 transition-opacity duration-200 group-hover:opacity-100 group-focus-within:opacity-100 hover:bg-white focus-visible:opacity-100 sm:flex"
               >
                 <ChevronLeft className="h-4 w-4 rtl:rotate-180" />
               </button>
@@ -97,14 +120,14 @@ export function ImageSlider({
                 type="button"
                 onClick={() => go(index + 1)}
                 aria-label="Next photo"
-                className="absolute end-2 top-1/2 hidden h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-white/85 text-[#1a1a1a] opacity-0 shadow transition-opacity group-hover:opacity-100 focus-visible:opacity-100 sm:flex"
+                className="absolute end-2 z-20 top-1/2 hidden h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full bg-white/90 text-[#1a1a1a] opacity-0 shadow-md ring-1 ring-black/5 transition-opacity duration-200 group-hover:opacity-100 group-focus-within:opacity-100 hover:bg-white focus-visible:opacity-100 sm:flex"
               >
                 <ChevronRight className="h-4 w-4 rtl:rotate-180" />
               </button>
             </>
           )}
 
-          <div className="absolute inset-x-0 bottom-2.5 flex items-center justify-center gap-1.5">
+          <div className="absolute inset-x-0 bottom-2.5 z-20 flex items-center justify-center gap-1.5">
             {images.map((src, i) => (
               <button
                 key={src}
