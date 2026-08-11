@@ -1,4 +1,5 @@
 'use client';
+import { useLocale } from '@/i18n/LocaleProvider';
 
 import { useState } from 'react';
 import Image from 'next/image';
@@ -9,12 +10,12 @@ import { Language } from '@/content/translations';
 import ratesData from '@/content/rates.json';
 
 export default function AboutPage() {
-  const [lang, setLang] = useState<Language>('en');
+  const lang = useLocale();
   const isUrdu = lang === 'ur';
 
   return (
     <div className={isUrdu ? 'font-urdu' : ''} lang={lang} dir={isUrdu ? 'rtl' : 'ltr'}>
-      <Navbar lang={lang} onLanguageChange={setLang} />
+      <Navbar />
 
       {/* Hero */}
       <section className="relative h-[45vh] min-h-[300px] flex items-end">
@@ -99,7 +100,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <Footer lang={lang} />
+      <Footer />
       <WhatsAppFloat lang={lang} />
     </div>
   );

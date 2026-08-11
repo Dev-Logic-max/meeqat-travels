@@ -7,7 +7,9 @@ import Image from 'next/image';
 
 export const OfficialPortalsSection: React.FC = () => {
   const [selectedHotel, setSelectedHotel] = useState<any>(null);
-  const [activeTab, setActiveTab] = useState<'portals' | 'hotels' | 'airlines'>('portals');
+  // Hotels first: it is what visitors actually came to compare. Portals are
+  // supporting evidence, so they sit last.
+  const [activeTab, setActiveTab] = useState<'portals' | 'hotels' | 'airlines'>('hotels');
 
   return (
     <section className="py-20 bg-gradient-to-b from-[#FAFAF5] via-white to-[#FAFAF5] border-y border-[#e8e4dc]">
@@ -27,39 +29,35 @@ export const OfficialPortalsSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Tab Selection Switcher with 3D feel */}
-        <div className="flex justify-center mb-10">
-          <div className="inline-flex p-1.5 bg-gray-100/80 rounded-2xl border border-gray-200 shadow-inner">
-            <button
-              onClick={() => setActiveTab('portals')}
-              className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-semibold transition-all ${
-                activeTab === 'portals'
-                  ? 'bg-white text-[#0B4D3B] shadow-md border border-[#e8e4dc]'
-                  : 'text-gray-600 hover:text-[#0B4D3B]'
-              }`}
-            >
-              <ShieldCheck className="w-4 h-4 text-[#0B4D3B]" /> Government Portals
-            </button>
-            <button
-              onClick={() => setActiveTab('hotels')}
-              className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-semibold transition-all ${
-                activeTab === 'hotels'
-                  ? 'bg-white text-[#0B4D3B] shadow-md border border-[#e8e4dc]'
-                  : 'text-gray-600 hover:text-[#0B4D3B]'
-              }`}
-            >
-              <Building className="w-4 h-4 text-[#0B4D3B]" /> Verified Hotels & Distances
-            </button>
-            <button
-              onClick={() => setActiveTab('airlines')}
-              className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs font-semibold transition-all ${
-                activeTab === 'airlines'
-                  ? 'bg-white text-[#0B4D3B] shadow-md border border-[#e8e4dc]'
-                  : 'text-gray-600 hover:text-[#0B4D3B]'
-              }`}
-            >
-              <Plane className="w-4 h-4 text-[#0B4D3B]" /> Approved Airlines
-            </button>
+        {/* Tabs — hotels first, portals last. Scrolls rather than wraps on phones. */}
+        <div className="mb-10 -mx-5 overflow-x-auto px-5 sm:mx-0 sm:flex sm:justify-center sm:px-0">
+          <div
+            role="tablist"
+            aria-label="Verified information"
+            className="inline-flex min-w-max gap-1 rounded-2xl border border-gray-200 bg-gray-100/80 p-1.5 shadow-inner"
+          >
+            {(
+              [
+                ['hotels', 'Verified Hotels & Distances', Building],
+                ['airlines', 'Approved Airlines', Plane],
+                ['portals', 'Government Portals', ShieldCheck],
+              ] as const
+            ).map(([key, label, Icon]) => (
+              <button
+                key={key}
+                role="tab"
+                aria-selected={activeTab === key}
+                onClick={() => setActiveTab(key)}
+                className={`flex shrink-0 items-center gap-2 whitespace-nowrap rounded-xl px-4 py-2.5 text-xs font-semibold transition-all sm:px-5 ${
+                  activeTab === key
+                    ? 'border border-[#e8e4dc] bg-white text-[#0B4D3B] shadow-md'
+                    : 'text-gray-600 hover:text-[#0B4D3B]'
+                }`}
+              >
+                <Icon className="h-4 w-4 text-[#0B4D3B]" />
+                {label}
+              </button>
+            ))}
           </div>
         </div>
 

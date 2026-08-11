@@ -1,4 +1,5 @@
 'use client';
+import { useLocale } from '@/i18n/LocaleProvider';
 
 import React, { useState } from 'react';
 import { Navbar } from '@/components/Navbar';
@@ -12,13 +13,13 @@ import Image from 'next/image';
 import { ArrowRight, Phone, Send, ChevronRight } from 'lucide-react';
 
 export default function HomePage() {
-  const [lang, setLang] = useState<Language>('en');
+  const lang = useLocale();
   const t = translations[lang];
   const isUrdu = lang === 'ur';
 
   return (
     <div className={isUrdu ? 'font-urdu' : ''} lang={lang} dir={isUrdu ? 'rtl' : 'ltr'}>
-      <Navbar lang={lang} onLanguageChange={setLang} />
+      <Navbar />
 
       {/* ─── HERO ─── */}
       <section className="relative h-[85vh] min-h-[560px] flex items-end">
@@ -310,7 +311,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <Footer lang={lang} />
+      <Footer />
       <WhatsAppFloat lang={lang} />
     </div>
   );

@@ -1,6 +1,6 @@
-export type Language = 'en' | 'ur';
+export type Language = 'en' | 'ur' | 'ar';
 
-export const translations = {
+const baseTranslations = {
   en: {
     nav: {
       home: "Home",
@@ -161,4 +161,12 @@ export const translations = {
       rights: "جملہ حقوق محفوظ ہیں۔"
     }
   }
+};
+
+// Arabic reuses the English copy for these legacy page strings until the Arabic
+// body translation lands. The newer pages (offices, visa guide) already carry
+// real Arabic in src/i18n/dictionaries.ts.
+export const translations = {
+  ...baseTranslations,
+  ar: baseTranslations.en,
 };

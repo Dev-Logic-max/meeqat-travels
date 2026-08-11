@@ -1,4 +1,5 @@
 'use client';
+import { useLocale } from '@/i18n/LocaleProvider';
 
 import { useState } from 'react';
 import { Navbar } from '@/components/Navbar';
@@ -9,7 +10,7 @@ import ratesData from '@/content/rates.json';
 import { MapPin, Phone, Mail, Send, Clock, ShieldCheck } from 'lucide-react';
 
 export default function ContactPage() {
-  const [lang, setLang] = useState<Language>('en');
+  const lang = useLocale();
   const isUrdu = lang === 'ur';
 
   const [formData, setFormData] = useState({
@@ -35,7 +36,7 @@ export default function ContactPage() {
 
   return (
     <div className={isUrdu ? 'font-urdu' : ''} lang={lang} dir={isUrdu ? 'rtl' : 'ltr'}>
-      <Navbar lang={lang} onLanguageChange={setLang} />
+      <Navbar />
 
       <section className="py-16 bg-[#FAFAF5] border-b border-[#e8e4dc]">
         <div className="max-w-7xl mx-auto px-5 sm:px-8">
@@ -189,7 +190,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <Footer lang={lang} />
+      <Footer />
       <WhatsAppFloat lang={lang} />
     </div>
   );

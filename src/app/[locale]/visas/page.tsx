@@ -1,4 +1,5 @@
 'use client';
+import { useLocale } from '@/i18n/LocaleProvider';
 
 import { useState } from 'react';
 import Image from 'next/image';
@@ -10,12 +11,12 @@ import ratesData from '@/content/rates.json';
 import { ExternalLink } from 'lucide-react';
 
 export default function VisasPage() {
-  const [lang, setLang] = useState<Language>('en');
+  const lang = useLocale();
   const isUrdu = lang === 'ur';
 
   return (
     <div className={`min-h-screen bg-[#FAFAF5] text-[#1a1a1a] ${isUrdu ? 'font-urdu text-right' : 'font-sans'}`} dir={isUrdu ? 'rtl' : 'ltr'}>
-      <Navbar lang={lang} onLanguageChange={setLang} />
+      <Navbar />
       
       {/* Hero */}
       <section className="relative h-[45vh] min-h-[300px] flex items-center justify-center pt-16 bg-[#16243F]">
@@ -112,7 +113,7 @@ export default function VisasPage() {
       </section>
 
       <WhatsAppFloat lang={lang} />
-      <Footer lang={lang} />
+      <Footer />
     </div>
   );
 }

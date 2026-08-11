@@ -3,15 +3,12 @@
 import React from 'react';
 import Link from 'next/link';
 import { MapPin, Phone, Mail } from 'lucide-react';
-import { Language } from '@/content/translations';
 import ratesData from '@/content/rates.json';
+import { useI18n } from '@/i18n/LocaleProvider';
 
-interface FooterProps {
-  lang: Language;
-}
-
-export const Footer: React.FC<FooterProps> = ({ lang }) => {
-  const isUrdu = lang === 'ur';
+export const Footer: React.FC = () => {
+  const { locale } = useI18n();
+  const p = (path: string) => `/${locale}${path}`;
 
   return (
     <footer className="bg-[#063528] text-white">
@@ -42,11 +39,11 @@ export const Footer: React.FC<FooterProps> = ({ lang }) => {
           <div className="space-y-3">
             <h4 className="text-xs font-bold text-gray-400 uppercase tracking-wide">Services</h4>
             <ul className="space-y-1.5 text-xs text-gray-300">
-              <li><Link href="/umrah-packages" className="hover:text-white transition-colors">Umrah Packages 2026</Link></li>
-              <li><Link href="/package-builder" className="hover:text-white transition-colors">Custom Package Builder</Link></li>
-              <li><Link href="/visas" className="hover:text-white transition-colors">Saudi Visit Visa</Link></li>
-              <li><Link href="/visas" className="hover:text-white transition-colors">International Visas</Link></li>
-              <li><Link href="/licence" className="hover:text-white transition-colors">Licence Verification</Link></li>
+              <li><Link href={p('/umrah-packages')} className="hover:text-white transition-colors">Umrah Packages 2026</Link></li>
+              <li><Link href={p('/package-builder')} className="hover:text-white transition-colors">Custom Package Builder</Link></li>
+              <li><Link href={p('/visas')} className="hover:text-white transition-colors">Saudi Visit Visa</Link></li>
+              <li><Link href={p('/visas')} className="hover:text-white transition-colors">International Visas</Link></li>
+              <li><Link href={p('/licence')} className="hover:text-white transition-colors">Licence Verification</Link></li>
             </ul>
           </div>
 
@@ -54,10 +51,10 @@ export const Footer: React.FC<FooterProps> = ({ lang }) => {
           <div className="space-y-3">
             <h4 className="text-xs font-bold text-gray-400 uppercase tracking-wide">Destinations</h4>
             <ul className="space-y-1.5 text-xs text-gray-300">
-              <li><Link href="/destinations/makkah" className="hover:text-white transition-colors">Makkah al-Mukarramah</Link></li>
-              <li><Link href="/destinations/madina" className="hover:text-white transition-colors">Madina al-Munawwarah</Link></li>
-              <li><Link href="/destinations/jeddah" className="hover:text-white transition-colors">Jeddah</Link></li>
-              <li><Link href="/about" className="hover:text-white transition-colors">About Meeqat Travel</Link></li>
+              <li><Link href={p('/destinations/makkah')} className="hover:text-white transition-colors">Makkah al-Mukarramah</Link></li>
+              <li><Link href={p('/destinations/madina')} className="hover:text-white transition-colors">Madina al-Munawwarah</Link></li>
+              <li><Link href={p('/destinations/jeddah')} className="hover:text-white transition-colors">Jeddah</Link></li>
+              <li><Link href={p('/about')} className="hover:text-white transition-colors">About Meeqat Travel</Link></li>
             </ul>
           </div>
 

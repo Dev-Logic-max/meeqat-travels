@@ -1,4 +1,5 @@
 'use client';
+import { useLocale } from '@/i18n/LocaleProvider';
 
 import { useState } from 'react';
 import Image from 'next/image';
@@ -10,7 +11,7 @@ import { Language } from '@/content/translations';
 import ratesData from '@/content/rates.json';
 
 export default function UmrahPackagesPage() {
-  const [lang, setLang] = useState<Language>('en');
+  const lang = useLocale();
   const isUrdu = lang === 'ur';
 
   const [activeFilter, setActiveFilter] = useState('All');
@@ -22,7 +23,7 @@ export default function UmrahPackagesPage() {
 
   return (
     <div className={`min-h-screen bg-[#FAFAF5] text-[#1a1a1a] ${isUrdu ? 'font-urdu text-right' : 'font-sans'}`} dir={isUrdu ? 'rtl' : 'ltr'}>
-      <Navbar lang={lang} onLanguageChange={setLang} />
+      <Navbar />
       
       {/* Hero */}
       <section className="relative h-[50vh] min-h-[320px] flex items-center justify-center pt-16">
@@ -127,7 +128,7 @@ export default function UmrahPackagesPage() {
       </section>
 
       <WhatsAppFloat lang={lang} />
-      <Footer lang={lang} />
+      <Footer />
     </div>
   );
 }

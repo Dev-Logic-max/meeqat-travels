@@ -1,4 +1,5 @@
 'use client'
+import { useLocale } from '@/i18n/LocaleProvider';
 
 import { useState } from 'react'
 import { Navbar } from '@/components/Navbar'
@@ -8,13 +9,13 @@ import { Language, translations } from '@/content/translations'
 import ratesData from '@/content/rates.json'
 
 export default function LicencePage() {
-  const [lang, setLang] = useState<Language>('en')
+  const lang = useLocale();
   const isUrdu = lang === 'ur'
   const t = translations[lang]
 
   return (
     <div className={`min-h-screen bg-[#FAFAF5] text-[#1a1a1a] ${isUrdu ? 'font-urdu text-right' : 'font-sans'}`} dir={isUrdu ? 'rtl' : 'ltr'}>
-      <Navbar lang={lang} onLanguageChange={setLang} />
+      <Navbar />
       
       <div className="pt-32 pb-20 max-w-4xl mx-auto px-6">
         <h1 className="font-serif text-5xl mb-6 text-[#16243F]">Licences & Verification</h1>
@@ -83,7 +84,7 @@ export default function LicencePage() {
       </div>
 
       <WhatsAppFloat lang={lang} />
-      <Footer lang={lang} />
+      <Footer />
     </div>
   )
 }

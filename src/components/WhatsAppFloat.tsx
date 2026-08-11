@@ -1,14 +1,18 @@
 'use client';
+import { useLocale } from '@/i18n/LocaleProvider';
 
 import React from 'react';
 import ratesData from '@/content/rates.json';
 import { Language } from '@/content/translations';
 
 interface WhatsAppFloatProps {
-  lang: Language;
+  /** Optional: legacy pages still pass this; new pages read it from context. */
+  lang?: Language;
 }
 
-export const WhatsAppFloat: React.FC<WhatsAppFloatProps> = ({ lang }) => {
+export const WhatsAppFloat: React.FC<WhatsAppFloatProps> = ({ lang: langProp }) => {
+  const contextLocale = useLocale();
+  const lang = langProp ?? contextLocale;
   const isUrdu = lang === 'ur';
   const waNumber = ratesData.agency.whatsappNumber;
   const waUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(

@@ -1,4 +1,5 @@
 'use client';
+import { useLocale } from '@/i18n/LocaleProvider';
 
 import React, { useState, use } from 'react';
 import { Navbar } from '@/components/Navbar';
@@ -75,7 +76,7 @@ const cityData: Record<string, {
 
 export default function DestinationDetailPage({ params }: DestinationPageProps) {
   const { city } = use(params);
-  const [lang, setLang] = useState<Language>('en');
+  const lang = useLocale();
   const isUrdu = lang === 'ur';
 
   const data = cityData[city.toLowerCase()] || cityData.makkah;
@@ -84,7 +85,7 @@ export default function DestinationDetailPage({ params }: DestinationPageProps) 
 
   return (
     <div className={isUrdu ? 'font-urdu' : ''} lang={lang} dir={isUrdu ? 'rtl' : 'ltr'}>
-      <Navbar lang={lang} onLanguageChange={setLang} />
+      <Navbar />
 
       {/* Hero */}
       <section className="relative h-[60vh] min-h-[400px] flex items-end">
@@ -166,7 +167,7 @@ export default function DestinationDetailPage({ params }: DestinationPageProps) 
         </div>
       </section>
 
-      <Footer lang={lang} />
+      <Footer />
       <WhatsAppFloat lang={lang} />
     </div>
   );
